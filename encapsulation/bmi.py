@@ -17,35 +17,52 @@ BMI 지수에 따른 결과는 다음과 같다.
 ***************************
 '''
 
-class bmi(object):
+class Bmi(object):
     def __init__(self, name, cm, kg):
+        self.name = name
         self.cm = cm
         self.kg = kg
-        self.name = name
+        self.biman = ""
 
-    def cal(self):
-        name = self.name
-        cm = self.cm
+    def excute(self):
+        self.biman = self.get_biman()
+        self.get_biman()
+        self.print_biman()
+
+    def get_bmi(self):
         kg = self.kg
-        m = cm/100
-        result = kg / m * m
-        if result >= 35:
+        m = self.cm / 100
+        return kg / m ** 2 # ** 제곱
+
+    def get_biman(self):
+        cal = self.get_bmi()
+        if cal >= 35:
             biman = "고도 비만"
-        elif result >= 30:
+        elif cal >= 30:
             biman = "중(重)도 비만 (2단계 비만)"
-        elif result >= 25:
+        elif cal >= 25:
             biman = "경도 비만 (1단계 비만)"
-        elif result >= 23:
+        elif cal >= 23:
             biman = "과체중"
-        elif result >= 18.5:
+        elif cal >= 18.5:
             biman = "정상"
-        else :
+        else:
             biman = "저체중"
-        print(f"***************************\n이름 키(cm) 몸무게(kg) 비만도\n{name} {cm} {kg} {biman} {result}\n***************************")
+        self.biman = biman
+
+    def print_biman(self):
+        name = self.name
+        biman = self.biman
+        title = " ### 비만도 계산기 ### "
+        aster = "*"*40
+        schema = "이름 키(cm) 몸무게(kg) 비만도"
+        result = f'{name} {cm} {kg} {biman}'
+        print(f'{title}\n{aster}\n{schema}\n{aster}\n{result}\n{aster}')
+
 
 if __name__ == "__main__":
     name = input("이름 : ")
-    cm = float(input("키(cm) : "))
-    kg = float(input("몸무게(kg) : "))
-    bmi = bmi(name, kg, cm)
-    bmi.cal()
+    cm = int(input("키(cm) : "))
+    kg = int(input("몸무게(kg) : "))
+    bmi = Bmi(name, cm, kg)
+    bmi.excute()
