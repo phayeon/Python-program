@@ -22,9 +22,12 @@ class Calculator(object): # class 상수, (object) = 상속 → Calculator가 �
             result = "잘못된 연산자 입니다."
         print(f"{self.num1} {self.op} {self.num2} = {result}")
 
-if __name__ == "__main__":
-    num1 = int(input("숫자 : "))
-    op = input("연산자 : ")
-    num2 = int(input("숫자 : "))
-    Calculator = Calculator(num1, op, num2) # Calculator의 인스턴스화(메모리로 이동)
-    Calculator.cal() # Calculator = 인스턴스 객체
+    @staticmethod
+    def main():  
+        num1 = int(input("숫자 : "))
+        op = input("연산자 : ")
+        num2 = int(input("숫자 : "))
+        calculator = Calculator(num1, op, num2) # Calculator의 인스턴스화(메모리로 이동)
+        calculator.cal() # Calculator = 인스턴스 객체
+
+Calculator.main()
