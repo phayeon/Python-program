@@ -7,7 +7,7 @@ class Bmi(object):
         self.kg = kg
         self.biman = ""
 
-    def excute(self):
+    def execute(self):
         self.biman = self.get_biman()
         self.get_biman()
         self.print_biman()
@@ -50,6 +50,6 @@ class Bmi(object):
         cm = int(input("키(cm) : "))
         kg = int(input("몸무게(kg) : "))
         bmi = Bmi(name, cm, kg)
-        bmi.excute()
+        bmi.execute()
 
 Bmi.main()
