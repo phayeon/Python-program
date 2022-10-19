@@ -10,7 +10,8 @@ class Bubble(object):
         print('### 랜덤 숫자 ###')
         print('*'*40)
         for i in self.extract_random():
-            print(i)
+            if i % 2 ==0: print(i)
+            else: pass
         print('*'*40)
     @staticmethod
     def main():
