@@ -39,6 +39,9 @@ class Contact(object):
         return int(menu)
 
     @staticmethod
+    def delete_contact(ls, name):
+        del ls[[i for i, j in enumerate(ls) if j.name == name]]
+    @staticmethod
     def main(): # 1회 출력(반복 X)
         ls = []
         while True:
@@ -53,6 +56,7 @@ class Contact(object):
                 Contact.get_contacts(ls)
             elif menu == 3:
                 print("### 연락처 삭제 ###")
+                Contact.delete_contact(ls, input("삭제할 이름 : "))
             elif menu == 4:
                 print("주소록 어플을 종료합니다.")
                 break
